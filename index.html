@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benvinguts al Taller per a Docents! 🎓</title>
+  <meta name="description" content="Aplicació interactiva de benvinguda i dinamització per al taller de formació docent.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+</head>
+<body>
+
+  <!-- Elements visuals de fons -->
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Canvas per a les celebracions de confeti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="container">
+    
+    <!-- Hero / Encapçalament de Benvinguda -->
+    <header class="hero">
+      <div class="badge-tag">
+        <span>✨</span> Formació & Innovació Educativa
+      </div>
+      <h1>Benvinguts i Benvingudes al Taller per a Docents! 🎓</h1>
+      <p class="lead">
+        Un espai d'aprenentatge compartit, reflexió pedagògica i noves eines per transformar la nostra tasca docent a l'aula.
+      </p>
+      <div class="hero-actions">
+        <button id="btn-welcome-confetti" class="btn btn-primary">
+          <span>🎉</span> Llançar Confeti de Benvinguda!
+        </button>
+        <button class="btn btn-secondary" onclick="document.querySelector('[data-tab=tab-badge]').click()">
+          <span>🪪</span> Crear la meva Acreditació
+        </button>
+        <button class="btn btn-secondary" onclick="document.querySelector('[data-tab=tab-wall]').click()">
+          <span>💬</span> Compartir Expectatives
+        </button>
+      </div>
+    </header>
+
+    <!-- Navegació per pestanyes -->
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="tab-badge" role="tab">
+        <span>🪪</span> Acreditació Digital
+      </button>
+      <button class="tab-btn" data-tab="tab-wall" role="tab">
+        <span>💬</span> Mur d'Expectatives
+      </button>
+      <button class="tab-btn" data-tab="tab-icebreaker" role="tab">
+        <span>🎲</span> Dinàmica Trencaglaç
+      </button>
+      <button class="tab-btn" data-tab="tab-timer" role="tab">
+        <span>⏱️</span> Temporitzador d'Aula
+      </button>
+      <button class="tab-btn" data-tab="tab-inspiration" role="tab">
+        <span>💡</span> Cites Inspiradores
+      </button>
+    </nav>
+
+    <!-- PESTANYA 1: ACREDITACIÓ DIGITAL -->
+    <section id="tab-badge" class="tab-content active" role="tabpanel">
+      <div class="card">
+        <div class="card-header">
+          <h2><span>🪪</span> Generador d'Acreditació de Docent Participant</h2>
+          <p>Personalitza el teu carnet digital per al taller. Pots imprimir-lo o guardar-lo com a record!</p>
+        </div>
+
+        <div class="badge-generator-grid">
+          <!-- Formulari -->
+          <div class="badge-form">
+            <div class="form-group">
+              <label for="badge-input-name">Nom i Cognoms:</label>
+              <input type="text" id="badge-input-name" class="form-control" placeholder="P. ex. Maria Garcia Mas" value="Docent Participant">
+            </div>
+
+            <div class="form-group">
+              <label for="badge-input-school">Centre Educatiu / Institut / Escola:</label>
+              <input type="text" id="badge-input-school" class="form-control" placeholder="P. ex. Institut Montserrat" value="Institut Escola de Futur">
+            </div>
+
+            <div class="form-group">
+              <label for="badge-input-stage">Etapa Educativa:</label>
+              <select id="badge-input-stage" class="form-control">
+                <option value="Educació Secundària Obligatòria (ESO)" selected>Educació Secundària Obligatòria (ESO)</option>
+                <option value="Educació Primària">Educació Primària</option>
+                <option value="Educació Infantil">Educació Infantil</option>
+                <option value="Batxillerat">Batxillerat</option>
+                <option value="Formació Professional (FP)">Formació Professional (FP)</option>
+                <option value="Formació de Persones Adultes (CFA)">Formació de Persones Adultes (CFA)</option>
+                <option value="Universitat / Formació Superior">Universitat / Formació Superior</option>
+                <option value="Equip Directiu / Coordinació">Equip Directiu / Coordinació</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="badge-input-role">Matèria / Àmbit docent:</label>
+              <input type="text" id="badge-input-role" class="form-control" placeholder="P. ex. Ciències Naturals, Llengua, Tecnologia..." value="Innovació i Noves Tecnologies">
+            </div>
+
+            <div class="form-group">
+              <label for="badge-input-power">El teu "Superpoder" Docent:</label>
+              <select id="badge-input-power" class="form-control">
+                <option value="💡 Creativitat desbordant a l'aula" selected>💡 Creativitat desbordant a l'aula</option>
+                <option value="🧘 Paciència infinita i serenor">🧘 Paciència infinita i serenor</option>
+                <option value="🚀 Mag/a de les eines digitals">🚀 Mag/a de les eines digitals</option>
+                <option value="❤️ Empatia i connexió amb l'alumnat">❤️ Empatia i connexió amb l'alumnat</option>
+                <option value="✨ Explicacions clares i inspiradores">✨ Explicacions clares i inspiradores</option>
+                <option value="🎯 Organització i treball en equip">🎯 Organització i treball en equip</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="badge-input-avatar">Tria la teva icona docent:</label>
+              <select id="badge-input-avatar" class="form-control">
+                <option value="🧑‍🏫">🧑‍🏫 Docent neutre</option>
+                <option value="👩‍🏫">👩‍🏫 Professora</option>
+                <option value="👨‍🏫">👨‍🏫 Professor</option>
+                <option value="🚀">🚀 Explorador/a de noves metodologies</option>
+                <option value="💡">💡 Bombeta d'idees</option>
+                <option value="📚">📚 Amant dels llibres i el saber</option>
+                <option value="🌱">🌱 Sembrador/a de curiositat</option>
+              </select>
+            </div>
+
+            <div style="margin-top: 20px;">
+              <button id="btn-download-badge" class="btn btn-primary" style="width: 100%;">
+                <span>🖨️</span> Imprimir / Guardar Carnet en PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Vista prèvia de la credencial -->
+          <div class="badge-preview-wrapper">
+            <div id="badge-to-export" class="badge-card">
+              <div class="badge-lanyard-hole"></div>
+              <div class="badge-header">
+                <div class="event-title">TALLER DE FORMACIÓ DOCENT</div>
+                <h3>ACREDITACIÓ OFICIAL</h3>
+              </div>
+              <div class="badge-body">
+                <div id="badge-display-avatar" class="badge-avatar">🧑‍🏫</div>
+                <div id="badge-display-name" class="badge-name">Docent Participant</div>
+                <div id="badge-display-role" class="badge-role">Innovació i Noves Tecnologies</div>
+
+                <div class="badge-details">
+                  <div class="badge-detail-item">
+                    <span class="badge-detail-label">Centre:</span>
+                    <span id="badge-display-school" class="badge-detail-value">Institut Escola de Futur</span>
+                  </div>
+                  <div class="badge-detail-item">
+                    <span class="badge-detail-label">Etapa:</span>
+                    <span id="badge-display-stage" class="badge-detail-value">ESO</span>
+                  </div>
+                  <div class="badge-detail-item">
+                    <span class="badge-detail-label">Superpoder:</span>
+                    <span id="badge-display-power" class="badge-detail-value">💡 Creativitat desbordant</span>
+                  </div>
+                </div>
+              </div>
+              <div class="badge-footer">
+                <div class="badge-qr-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2">
+                    <rect x="2" y="2" width="8" height="8" rx="1"/>
+                    <rect x="14" y="2" width="8" height="8" rx="1"/>
+                    <rect x="2" y="14" width="8" height="8" rx="1"/>
+                    <rect x="15" y="15" width="2" height="2"/>
+                    <rect x="19" y="15" width="2" height="2"/>
+                    <rect x="15" y="19" width="2" height="2"/>
+                    <rect x="19" y="19" width="2" height="2"/>
+                  </svg>
+                </div>
+                <div class="badge-verify-text">
+                  Docent Actiu & Innovador<br>
+                  <strong>Curs 2026/2027</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTANYA 2: MUR D'EXPECTATIVES (POST-ITS) -->
+    <section id="tab-wall" class="tab-content" role="tabpanel">
+      <div class="card">
+        <div class="card-header">
+          <h2><span>💬</span> Mur Virtual d'Expectatives i Idees</h2>
+          <p>Què esperes aprendre o aportar en aquest taller? Deixa el teu post-it perquè tothom el vegi!</p>
+        </div>
+
+        <!-- Creador de post-it -->
+        <div class="postit-creator">
+          <div class="form-group">
+            <label for="postit-author">El teu nom o especialitat:</label>
+            <input type="text" id="postit-author" class="form-control" placeholder="P. ex. Laura (Biologia)" maxlength="40">
+          </div>
+          <div class="form-group">
+            <label for="postit-content">La teva expectativa, pregunta o reflexió per al taller:</label>
+            <textarea id="postit-content" class="form-control" rows="3" placeholder="P. ex. M'agradaria descobrir idees per fer les classes més participatives i col·laboratives..."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div class="color-picker">
+              <span style="font-size: 0.88rem; font-weight: 600; color: #475569;">Color del post-it:</span>
+              <div class="color-option postit-yellow selected" data-color="postit-yellow" title="Groc clàssic"></div>
+              <div class="color-option postit-green" data-color="postit-green" title="Verd menta"></div>
+              <div class="color-option postit-blue" data-color="postit-blue" title="Blau cel"></div>
+              <div class="color-option postit-pink" data-color="postit-pink" title="Rosa pastís"></div>
+              <div class="color-option postit-purple" data-color="postit-purple" title="Lavanda"></div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-secondary btn-sm" onclick="clearAllNotes()">Netejar tot el mur</button>
+              <button class="btn btn-primary" onclick="addNote()"><span>📌</span> Penjar Nota al Mur</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- El mur on es mostren els post-its -->
+        <div id="postit-wall" class="postit-wall">
+          <!-- Es genera dinàmicament per JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTANYA 3: DINÀMICA TRENCAGLAÇ -->
+    <section id="tab-icebreaker" class="tab-content" role="tabpanel">
+      <div class="card">
+        <div class="card-header">
+          <h2><span>🎲</span> Dinàmiques & Preguntes Trencaglaç (Icebreakers)</h2>
+          <p>Utilitza aquestes preguntes per encetar converses riques en parelles o en petit grup abans de començar les activitats.</p>
+        </div>
+
+        <div class="icebreaker-card">
+          <div class="icebreaker-icon">💭</div>
+          <div id="icebreaker-text" class="icebreaker-question">
+            Carregant pregunta inicial...
+          </div>
+          <div class="icebreaker-tip">
+            💡 Suggeriment: Comparteix la teva resposta amb la persona del costat durant 1 minut!
+          </div>
+          <button id="btn-next-question" class="btn btn-primary">
+            <span>🎲</span> Tocar una Nova Pregunta
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTANYA 4: TEMPORITZADOR D'AULA -->
+    <section id="tab-timer" class="tab-content" role="tabpanel">
+      <div class="card">
+        <div class="card-header">
+          <h2><span>⏱️</span> Temporitzador per a Activitats i Dinàmiques</h2>
+          <p>Controla el temps de les fases de treball en grup, reflexió individual o posada en comú.</p>
+        </div>
+
+        <div class="timer-container">
+          <div class="timer-presets">
+            <button class="btn btn-secondary timer-preset-btn" data-minutes="1">1 min (Reflexió)</button>
+            <button class="btn btn-secondary timer-preset-btn" data-minutes="2">2 min (Parelles)</button>
+            <button class="btn btn-secondary timer-preset-btn" data-minutes="5">5 min (Grup)</button>
+            <button class="btn btn-secondary timer-preset-btn" data-minutes="10">10 min (Tasca)</button>
+            <button class="btn btn-secondary timer-preset-btn" data-minutes="15">15 min (Debat)</button>
+          </div>
+
+          <div id="timer-display" class="timer-display">05:00</div>
+
+          <div class="timer-controls">
+            <button id="timer-start-btn" class="btn btn-success"><span>▶️</span> Iniciar</button>
+            <button id="timer-pause-btn" class="btn btn-secondary"><span>⏸️</span> Pausar</button>
+            <button id="timer-reset-btn" class="btn btn-outline"><span>🔄</span> Reiniciar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTANYA 5: INSPIRACIÓ PEDAGÒGICA -->
+    <section id="tab-inspiration" class="tab-content" role="tabpanel">
+      <div class="card">
+        <div class="card-header">
+          <h2><span>💡</span> Píndoles d'Inspiració Pedagògica</h2>
+          <p>Reflexions per recordar la importància i l'impacte transformador de la nostra feina d'ensenyar.</p>
+        </div>
+
+        <div class="quote-box">
+          <p id="quote-text">"L'educació no canvia el món: canvia les persones que van a canviar el món."</p>
+          <div id="quote-author" class="quote-author">— Paulo Freire</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 16px;">
+          <button id="btn-new-quote" class="btn btn-accent">
+            <span>✨</span> Descobrir una Altra Cita
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Peu de pàgina -->
+    <footer>
+      <p>
+        Creat amb il·lusió per al <strong>Taller per a Docents</strong> · Repositori: 
+        <a href="https://github.com/miquelangelfuentes/prova4" target="_blank" rel="noopener">miquelangelfuentes/prova4</a>
+      </p>
+      <p style="margin-top: 6px; font-size: 0.8rem; color: #94a3b8;">
+        Aplicació 100% autònoma i responsive. Funciona sense dependències externes.
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
